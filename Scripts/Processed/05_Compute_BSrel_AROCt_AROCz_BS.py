@@ -7,7 +7,7 @@ from scipy.stats import norm
 
 ###############################################################################################
 # CODE DESCRIPTION
-# 04_Compute_BSrel_AROCt_AROCz_BS.py computes the values of the Brier Score - Reliability component (BSrel), 
+# 05_Compute_BSrel_AROCt_AROCz_BS.py computes the values of the Brier Score - Reliability component (BSrel), 
 # the Area Under the ROC curve with the trapezoidal approximation (AROCt) and the Area Under the ROC curve 
 # using the binormal fitting (AROCz), including bootstrapped (BS) values.
 # Code Runtime: the script can take up 30 days to run in serial. It is recommended to run the code in parallel for 
@@ -42,7 +42,7 @@ SystemFC_list = ["ENS", "ecpoint_MultipleWT", "ecPoint_SingleWT"]
 NumEM_list = [51, 99, 99]
 Git_repo = "/ec/vol/ecpoint_dev/mofp/Papers_2_Write/ECMWF_TM_Verif_ecPoint_SingleWT"
 DirIN = "Data/Compute/01_Count_EM_OBS_Exceeding_VRE"
-DirOUT = "Data/Compute/04_BSrel_AROCt_AROCz_BS"
+DirOUT = "Data/Compute/05_BSrel_AROCt_AROCz_BS"
 ###############################################################################################
 
 

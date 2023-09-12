@@ -67,16 +67,16 @@ for vre in VRE_list:
             CIz_upper = np.nanpercentile(arocz_BS, 100 - (alpha/2), axis=1)
 
             # Plotting the AROCt and AROCz values with their CI
-            ax.plot(StepF, aroc, "o-", color=Colour_SystemFC, label="AROC, " + SystemFC, linewidth=2)
+            ax.plot(StepF, aroc, "o-", color=Colour_SystemFC, label="AROCt, " + SystemFC, linewidth=2)
             ax.plot(StepF, arocz, "o--", color=Colour_SystemFC, label="AROCz, " + SystemFC, linewidth=2)
             ax.fill_between(StepF, CI_lower, CI_upper, color=Colour_SystemFC, alpha=0.2, edgecolor="none")
             ax.fill_between(StepF, CIz_lower, CIz_upper, color=Colour_SystemFC, alpha=0.2, edgecolor="none")
 
       # Completing the AROCt and AROCz plots
       DiscStep = ((StepF[-1] - StepF[0]) / (len(StepF)-1))
-      ax.set_title("Area Under the ROC curve, Real (AROC) and Binormal (AROCz)\n VRE>=" + str(vre) + "mm/" + str(Acc) + "h, CL=" + str(CL) + "%\n \n ", fontsize=20, pad=20, weight="bold")
+      ax.set_title("Area Under the ROC curve, Trapezoidal (AROCt) and Binormal (AROCz)\n VRE>=" + str(vre) + "mm/" + str(Acc) + "h, CL=" + str(CL) + "%\n \n ", fontsize=20, pad=20, weight="bold")
       ax.set_xlabel(" \nSteps ad the end of the " + str(Acc) + "-hourly accumulation period [hours]", fontsize=16, labelpad=10)
-      ax.set_ylabel("AROC and AROCz [-]", fontsize=16, labelpad=10)
+      ax.set_ylabel("AROCt and AROCz [-]", fontsize=16, labelpad=10)
       ax.set_xlim([StepF[0]-1, StepF[-1]+1])
       ax.set_ylim([0.5,1])
       ax.set_xticks(np.arange(StepF[0], (StepF[-1]+1), DiscStep))
@@ -88,7 +88,7 @@ for vre in VRE_list:
 
       # Saving the AROCt and AROCz plots
       DirOUT_temp= Git_repo + "/" + DirOUT + "/" + f"{Acc:02d}" + "h"
-      FileNameOUT_temp = "AROC_" + f"{Acc:02d}" + "h_" + SystemFC + "_" + str(vre) + ".jpeg"
+      FileNameOUT_temp = "AROCt_AROCz_" + f"{Acc:02d}" + "h_" + SystemFC + "_" + str(vre) + ".jpeg"
       if not os.path.exists(DirOUT_temp):
             os.makedirs(DirOUT_temp)
       plt.savefig(DirOUT_temp + "/" + FileNameOUT_temp)

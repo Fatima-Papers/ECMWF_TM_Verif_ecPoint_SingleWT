@@ -25,7 +25,7 @@ CL = 99
 SystemFC_list = ["ENS", "ecPoint_MultipleWT", "ecPoint_SingleWT"]
 Colour_SystemFC_list = ["darkcyan", "darkorange", "grey"]
 Git_repo = "/ec/vol/ecpoint_dev/mofp/Papers_2_Write/ECMWF_TM_Verif_ecPoint_SingleWT"
-DirIN = "Data/Compute/05_BSrel_AROCt_AROCz_BS"
+DirIN = "Data/Compute/03_BSrel_AROCt_AROCz_BS"
 DirOUT = "Data/Plot/06_BSrel_CI"
 ########################################################################################
 

@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 ##############################################################################
 # CODE DESCRIPTION
-# 03_Plot_Real_Binormal_ROC_NoBS.py plots "real" and "binormal" ROC curves with no 
+# 04_Plot_Real_Binormal_ROC_NoBS.py plots "real" and "binormal" ROC curves with no 
 # confidence intervals.
 # Code runtime: the code takes 5 minutes to run in serial.
 
@@ -30,7 +30,7 @@ SystemFC_list = ["ENS", "ecPoint_MultipleWT", "ecPoint_SingleWT"]
 Colour_SystemFC_list = ["darkcyan", "darkorange", "grey"]
 Git_repo = "/ec/vol/ecpoint_dev/mofp/Papers_2_Write/ECMWF_TM_Verif_ecPoint_SingleWT"
 DirIN = "Data/Compute/02_Real_Binormal_HR_FAR_AROC_NoBS"
-DirOUT = "Data/Plot/03_Real_Binormal_ROC_NoBS"
+DirOUT = "Data/Plot/04_Real_Binormal_ROC_NoBS"
 ##############################################################################
 
 
@@ -59,8 +59,8 @@ for vre in VRE_list:
                   Colour_SystemFC = Colour_SystemFC_list[indSystemFC]
 
                   # Reading the "real" and "binormal" AROC values
-                  FileIN_AROC = Git_repo + "/" + DirIN + "/" + str(Acc) + "h/AROC_" + str(Acc) + "h_" + SystemFC + "_" + str(vre) + ".npy"
-                  FileIN_AROCz = Git_repo + "/" + DirIN + "/" + str(Acc) + "h/AROCz_" + str(Acc) + "h_" + SystemFC + "_" + str(vre) + ".npy"
+                  FileIN_AROC = Git_repo + "/" + DirIN + "/" + f"{Acc:02d}" + "h/" + SystemFC + "/" + str(vre) + "/AROC_" + f"{Acc:02d}" + "h_" + SystemFC + "_" + str(vre) + ".npy"
+                  FileIN_AROCz = Git_repo + "/" + DirIN + "/" + f"{Acc:02d}" + "h/AROCz_" + f"{Acc:02d}" + "h_" + SystemFC + "_" + str(vre) + ".npy"
                   AROC = np.load(FileIN_AROC)
                   AROCz = np.load(FileIN_AROCz)
 
@@ -75,7 +75,7 @@ for vre in VRE_list:
                   FARz = np.load(FileIN_FARz)
                   
                   # Plotting the "real" and "binormal" ROC curves
-                  label_real = "ROC, " + SystemFC + " (AROC = " + str(round(AROC[indStepF,1],3)) + ")"
+                  label_real = "ROC, " + SystemFC + " (AROCt = " + str(round(AROC[indStepF,1],3)) + ")"
                   label_binormal = "ROCz, " + SystemFC + " (AROCz = " + str(round(AROCz[indStepF,1],3)) + ")"
                   plt.plot(FAR, HR, "o-", color=Colour_SystemFC, label=label_real, linewidth=2)
                   plt.plot(FARz, HRz, "--", color=Colour_SystemFC, label=label_binormal, linewidth=2)

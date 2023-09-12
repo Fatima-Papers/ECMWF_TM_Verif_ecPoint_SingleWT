@@ -2,9 +2,9 @@ import os
 import numpy as np
 import matplotlib.pyplot as plt
 
-#########################################################################################
+########################################################################################
 # CODE DESCRIPTION
-# 07_Plot_BSrel_CI.py plots Brier Score - Reliability component (BSrel), and their correspondent confidence 
+# 06_Plot_BSrel_CI.py plots Brier Score - Reliability component (BSrel), and their correspondent confidence 
 # intervals (CI).
 # Note: runtime negligible.
 
@@ -20,14 +20,14 @@ import matplotlib.pyplot as plt
 
 # INPUT PARAMETERS
 Acc = 12
-VRE_list = [10, 25, 50]
+VRE_list = [0.2, 10, 25, 50]
 CL = 99
 SystemFC_list = ["ENS", "ecPoint_MultipleWT", "ecPoint_SingleWT"]
 Colour_SystemFC_list = ["darkcyan", "darkorange", "grey"]
 Git_repo = "/ec/vol/ecpoint_dev/mofp/Papers_2_Write/ECMWF_TM_Verif_ecPoint_SingleWT"
-DirIN = "Data/Compute/06_BSrel_Bootstrapping"
-DirOUT = "Data/Plot/07_BSrel_CI"
-#########################################################################################
+DirIN = "Data/Compute/05_BSrel_AROCt_AROCz_BS"
+DirOUT = "Data/Plot/06_BSrel_CI"
+########################################################################################
 
 
 # Plotting the BSrel values for a specific vre
@@ -44,7 +44,7 @@ for vre in VRE_list:
             Colour_SystemFC = Colour_SystemFC_list[indSystemFC]
 
             # Reading the steps computed, and the original and bootstrapped BSrel values
-            DirIN_temp= Git_repo + "/" + DirIN + "/" + f"{Acc:02d}" + "h"
+            DirIN_temp= Git_repo + "/" + DirIN + "/" + f"{Acc:02d}" + "h/BSrel"
             FileNameIN_temp = "BSrel_" + f"{Acc:02d}" + "h_" + SystemFC + "_" + str(vre) + ".npy"
             StepF = np.load(DirIN_temp + "/" + FileNameIN_temp)[:,0].astype(int)
             bsrel_real = np.load(DirIN_temp + "/" + FileNameIN_temp)[:,1]

@@ -3,7 +3,7 @@ from datetime import datetime, timedelta
 import numpy as np
 import metview as mv 
 
-########################################################################
+#############################################################################
 # CODE DESCRIPTION
 # 01_Compute_Count_EM_OBS_Exceeding_VRE.py computes the count of ensemble 
 # members and observations exceeding the considered verifying rainfall event. 
@@ -33,11 +33,11 @@ Disc_Step = 6
 Acc = 12
 VRE_list = [0.2, 10, 25, 50]
 SystemFC_list = ["ENS", "ecPoint_MultipleWT", "ecPoint_SingleWT"]
-Git_repo="/ec/vol/ecpoint_dev/mofp/Papers_2_Write/Verif_ecPoint_SingleWT"
+Git_repo="/ec/vol/ecpoint_dev/mofp/Papers_2_Write/ECMWF_TM_Verif_ecPoint_SingleWT"
 DirIN_FC = "Data/Raw/FC"
 DirIN_OBS = "Data/Raw/OBS"
 DirOUT = "Data/Compute/01_Count_EM_OBS_Exceeding_VRE"
-########################################################################
+#############################################################################
 
 
 # COSTUME FUNCTIONS

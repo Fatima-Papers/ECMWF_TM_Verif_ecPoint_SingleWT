@@ -1,11 +1,10 @@
 #!/bin/bash
 
-##################################################################
+#############################################################################
 # CODE DESCRIPTION
-# Retrieve_OBS.sh retrieves rainfall observations from STVL
-# Files contain rainfall observation from global rain gauges, 
-# for the considered accumulation period , 
-# ending at the time (in UTC) indicated in the file name.
+# Retrieve_OBS.sh retrieves rainfall observations from STVL. Files contain rainfall observation 
+# from global rain gauges, for the considered accumulation period, ending at the time (in UTC) 
+# indicated in the file name.
 
 # INPUT PARAMETERS DESCRIPTION
 # DateS (date, in YYYYMMDD format): first date of observations to retrieve
@@ -18,9 +17,9 @@
 DateS=20211201
 DateF=20221210
 Acc=12
-Git_repo="/ec/vol/ecpoint_dev/mofp/Papers_2_Write/Verif_ecPoint_SingleWT"
+Git_repo="/ec/vol/ecpoint_dev/mofp/Papers_2_Write/ECMWF_TM_Verif_ecPoint_SingleWT"
 DirOUT="Data/Raw/OBS"
-##################################################################
+#############################################################################
 
 
 # --- DO NOT MODIFY --- #

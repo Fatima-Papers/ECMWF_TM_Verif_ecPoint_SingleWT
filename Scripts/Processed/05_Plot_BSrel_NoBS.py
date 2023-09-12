@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import itertools
 import numpy as np
 
-###############################################################################################
+###################################################################################################
 # CODE DESCRIPTION
 # 05_Plot_BSrel_NoBS.py plots the Brier Score (Reliability) with no confidence intervals.
 # Code runtime: the script takes up to 1 hour to run in serial.
@@ -35,10 +35,10 @@ VRE_list = [0.2,10,25,50]
 SystemFC_list = ["ENS", "ecPoint_MultipleWT", "ecPoint_SingleWT"]
 NumEM_list = [51, 99, 99]
 Colour_SystemFC_list = ["darkcyan", "darkorange", "grey"]
-Git_repo = "/ec/vol/ecpoint_dev/mofp/Papers_2_Write/Verif_ecPoint_SingleWT"
+Git_repo = "/ec/vol/ecpoint_dev/mofp/Papers_2_Write/ECMWF_TM_Verif_ecPoint_SingleWT"
 DirIN = "Data/Compute/01_Count_EM_OBS_Exceeding_VRE"
 DirOUT = "Data/Plot/05_BSrel_NoBS"
-###############################################################################################
+###################################################################################################
 
 
 # COSTUME FUNCTIONS

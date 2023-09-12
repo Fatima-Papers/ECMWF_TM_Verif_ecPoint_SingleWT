@@ -2,7 +2,7 @@ import os
 import numpy as np
 import matplotlib.pyplot as plt
 
-#############################################################################
+##############################################################################
 # CODE DESCRIPTION
 # 03_Plot_Real_Binormal_ROC_NoBS.py plots "real" and "binormal" ROC curves with no 
 # confidence intervals.
@@ -28,10 +28,10 @@ Acc = 12
 VRE_list = [0.2,10,25,50]
 SystemFC_list = ["ENS", "ecPoint_MultipleWT", "ecPoint_SingleWT"]
 Colour_SystemFC_list = ["darkcyan", "darkorange", "grey"]
-Git_repo = "/ec/vol/ecpoint_dev/mofp/Papers_2_Write/Verif_ecPoint_SingleWT"
+Git_repo = "/ec/vol/ecpoint_dev/mofp/Papers_2_Write/ECMWF_TM_Verif_ecPoint_SingleWT"
 DirIN = "Data/Compute/02_Real_Binormal_HR_FAR_AROC_NoBS"
 DirOUT = "Data/Plot/03_Real_Binormal_ROC_NoBS"
-#############################################################################
+##############################################################################
 
 
 # Setting the output directory

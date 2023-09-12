@@ -1,10 +1,10 @@
 #!/bin/bash
 
-##################################################################
+#############################################################################
 # CODE DESCRIPTION
-# Retrieve_ecPoint retrieves ecPoint-Rainfall forecasts from ECFS.
-# Files contain global rainfall forecasts for the considered accumulation period, 
-# ending at the time step indicated in the file name.
+# Retrieve_ecPoint retrieves ecPoint-Rainfall forecasts from ECFS. Files contain global rainfall 
+# forecasts for the considered accumulation period, ending at the time step indicated in the 
+# file name.
 
 # INPUT PARAMETERS DESCRIPTION
 # BaseDateS (date, in YYYYMMDD format): first forecast's basedate to retrieve
@@ -27,9 +27,9 @@ BaseTime=0
 Acc=12
 CodeVers="2.0.0"
 CalVers="1.1.0"
-Git_repo="/ec/vol/ecpoint_dev/mofp/Papers_2_Write/Verif_ecPoint_SingleWT"
+Git_repo="/ec/vol/ecpoint_dev/mofp/Papers_2_Write/ECMWF_TM_Verif_ecPoint_SingleWT"
 DirOUT="Data/Raw/FC/ecPoint_MultipleWT"
-##################################################################
+#############################################################################
 
 
 # --- DO NOT MODIFY --- #

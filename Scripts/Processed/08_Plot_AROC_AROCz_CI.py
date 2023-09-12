@@ -2,9 +2,10 @@ import os
 import numpy as np
 import matplotlib.pyplot as plt
 
-###############################################################################################
+#########################################################################################
 # CODE DESCRIPTION
-# 08_Plot_AROC_CI.py plots Area Under the ROC curve (AROC), and their correspondent confidence intervals (CI).
+# 08_Plot_AROC_CI.py plots Area Under the ROC curve (AROC), and their correspondent confidence intervals 
+# (CI).
 # Note: runtime negligible.
 
 # INPUT PARAMETERS DESCRIPTION
@@ -23,10 +24,10 @@ VRE_list = [0.2, 10, 25, 50]
 CL = 99
 SystemFC_list = ["ENS", "ecPoint_MultipleWT", "ecPoint_SingleWT"]
 Colour_SystemFC_list = ["darkcyan", "darkorange", "grey"]
-Git_repo = "/ec/vol/ecpoint_dev/mofp/Papers_2_Write/Verif_ecPoint_SingleWT"
+Git_repo = "/ec/vol/ecpoint_dev/mofp/Papers_2_Write/ECMWF_TM_Verif_ecPoint_SingleWT"
 DirIN = "Data/Compute"
 DirOUT = "Data/Plot/08_AROC_CI"
-###############################################################################################
+#########################################################################################
 
 
 # Plotting the AROC values for a specific vre

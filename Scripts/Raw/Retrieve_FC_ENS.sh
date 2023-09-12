@@ -1,10 +1,9 @@
 #!/bin/bash
 
-##################################################################
+#############################################################################
 # CODE DESCRIPTION
-# Retrieve_ENS.sh retrieves raw ECMWF ENS rainfall forecasts from MARS.
-# Files contain cumulative global rainfall forecasts 
-# up to the step indicated in the file name.
+# Retrieve_ENS.sh retrieves raw ECMWF ENS rainfall forecasts from MARS. Files contain 
+# cumulative global rainfall forecasts up to the step indicated in the file name.
 
 # INPUT PARAMETERS DESCRIPTION
 # BaseDateS (date, in YYYYMMDD format): first forecast's basedate to retrieve
@@ -23,9 +22,9 @@ BaseTime=0
 StepS=0
 StepF=246
 DiscStep=6
-Git_repo="/ec/vol/ecpoint_dev/mofp/Papers_2_Write/Verif_ecPoint_SingleWT"
+Git_repo="/ec/vol/ecpoint_dev/mofp/Papers_2_Write/ECMWF_TM_Verif_ecPoint_SingleWT"
 DirOUT="Data/Raw/FC/ENS"
-##################################################################
+#############################################################################
 
 
 # --- DO NOT MODIFY --- #

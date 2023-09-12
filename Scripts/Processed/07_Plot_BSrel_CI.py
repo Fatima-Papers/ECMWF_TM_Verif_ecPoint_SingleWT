@@ -2,9 +2,10 @@ import os
 import numpy as np
 import matplotlib.pyplot as plt
 
-##################################################################################################
+#########################################################################################
 # CODE DESCRIPTION
-# 07_Plot_BSrel_CI.py plots Brier Score - Reliability component (BSrel), and their correspondent confidence intervals (CI).
+# 07_Plot_BSrel_CI.py plots Brier Score - Reliability component (BSrel), and their correspondent confidence 
+# intervals (CI).
 # Note: runtime negligible.
 
 # INPUT PARAMETERS DESCRIPTION
@@ -23,10 +24,10 @@ VRE_list = [10, 25, 50]
 CL = 99
 SystemFC_list = ["ENS", "ecPoint_MultipleWT", "ecPoint_SingleWT"]
 Colour_SystemFC_list = ["darkcyan", "darkorange", "grey"]
-Git_repo = "/ec/vol/ecpoint_dev/mofp/Papers_2_Write/Verif_ecPoint_SingleWT"
+Git_repo = "/ec/vol/ecpoint_dev/mofp/Papers_2_Write/ECMWF_TM_Verif_ecPoint_SingleWT"
 DirIN = "Data/Compute/06_BSrel_Bootstrapping"
 DirOUT = "Data/Plot/07_BSrel_CI"
-##################################################################################################
+#########################################################################################
 
 
 # Plotting the BSrel values for a specific vre

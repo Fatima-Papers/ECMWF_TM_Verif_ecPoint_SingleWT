@@ -4,8 +4,8 @@ import matplotlib.pyplot as plt
 
 #########################################################################################
 # CODE DESCRIPTION
-# 08_Plot_AROC_CI.py plots Area Under the ROC curve (AROC), and their correspondent confidence intervals 
-# (CI).
+# 07_Plot_AROCt_AROCz_CI.py plots the Area Under the ROC curve with the trapezoidal (AROCt) and the 
+# binormal (AROCz) approximation. The plots also include confidence intervals (CI).
 # Note: runtime negligible.
 
 # INPUT PARAMETERS DESCRIPTION
@@ -25,38 +25,38 @@ CL = 99
 SystemFC_list = ["ENS", "ecPoint_MultipleWT", "ecPoint_SingleWT"]
 Colour_SystemFC_list = ["darkcyan", "darkorange", "grey"]
 Git_repo = "/ec/vol/ecpoint_dev/mofp/Papers_2_Write/ECMWF_TM_Verif_ecPoint_SingleWT"
-DirIN = "Data/Compute"
-DirOUT = "Data/Plot/08_AROC_CI"
+DirIN = "Data/Compute/05_BSrel_AROCt_AROCz_BS"
+DirOUT = "Data/Plot/07_AROCt_AROCz_CI"
 #########################################################################################
 
 
-# Plotting the AROC values for a specific vre
+# Plotting the AROCt and AROCz values for a specific vre
 for vre in VRE_list:
 
       # Setting the figure
       fig, ax = plt.subplots(figsize=(17, 13))
       
-      # Plotting the AROC values for a specific forecasting system
+      # Plotting the AROCt and AROCz values for a specific forecasting system
       for indSystemFC in range(len(SystemFC_list)):
             
             # Selecting the forecasting system to plot, and its correspondent colour in the plot
             SystemFC = SystemFC_list[indSystemFC]
             Colour_SystemFC = Colour_SystemFC_list[indSystemFC]
 
-            # Reading the steps computed, and the original and bootstrapped AROC values
-            DirIN_temp= Git_repo + "/" + DirIN + "/06_AROC_Bootstrapping/" + f"{Acc:02d}" + "h"
-            FileNameIN_temp = "AROC_" + f"{Acc:02d}" + "h_" + SystemFC + "_" + str(vre) + ".npy"
+            # Reading the steps computed, and the original and bootstrapped AROCt values
+            DirIN_temp= Git_repo + "/" + DirIN + "/" + f"{Acc:02d}" + "h/AROCt"
+            FileNameIN_temp = "AROCt_" + f"{Acc:02d}" + "h_" + SystemFC + "_" + str(vre) + ".npy"
             StepF = np.load(DirIN_temp + "/" + FileNameIN_temp)[:,0].astype(int)
             aroc = np.load(DirIN_temp + "/" + FileNameIN_temp)[:,1]
             aroc_BS = np.load(DirIN_temp + "/" + FileNameIN_temp)[:,2:]
 
             # Reading the original and bootstrapped AROCz values
-            DirIN_temp= Git_repo + "/" + DirIN + "/06_AROCz_Bootstrapping/" + f"{Acc:02d}" + "h"
+            DirIN_temp= Git_repo + "/" + DirIN + "/" + f"{Acc:02d}" + "h/AROCz"
             FileNameIN_temp = "AROCz_" + f"{Acc:02d}" + "h_" + SystemFC + "_" + str(vre) + ".npy"
             arocz = np.load(DirIN_temp + "/" + FileNameIN_temp)[:,1]
             arocz_BS = np.load(DirIN_temp + "/" + FileNameIN_temp)[:,2:]
 
-            # Computing the confidence intervals from the bootstrapped AROC values
+            # Computing the confidence intervals from the bootstrapped AROCt values
             alpha = 100 - CL 
             CI_lower = np.nanpercentile(aroc_BS, alpha/2, axis=1)
             CI_upper = np.nanpercentile(aroc_BS, 100 - (alpha/2), axis=1)
@@ -66,14 +66,13 @@ for vre in VRE_list:
             CIz_lower = np.nanpercentile(arocz_BS, alpha/2, axis=1)
             CIz_upper = np.nanpercentile(arocz_BS, 100 - (alpha/2), axis=1)
 
-            # Plotting the AROC and AROCz values
+            # Plotting the AROCt and AROCz values with their CI
             ax.plot(StepF, aroc, "o-", color=Colour_SystemFC, label="AROC, " + SystemFC, linewidth=2)
             ax.plot(StepF, arocz, "o--", color=Colour_SystemFC, label="AROCz, " + SystemFC, linewidth=2)
             ax.fill_between(StepF, CI_lower, CI_upper, color=Colour_SystemFC, alpha=0.2, edgecolor="none")
             ax.fill_between(StepF, CIz_lower, CIz_upper, color=Colour_SystemFC, alpha=0.2, edgecolor="none")
 
-      
-      # Setting the AROC plot metadata
+      # Completing the AROCt and AROCz plots
       DiscStep = ((StepF[-1] - StepF[0]) / (len(StepF)-1))
       ax.set_title("Area Under the ROC curve, Real (AROC) and Binormal (AROCz)\n VRE>=" + str(vre) + "mm/" + str(Acc) + "h, CL=" + str(CL) + "%\n \n ", fontsize=20, pad=20, weight="bold")
       ax.set_xlabel(" \nSteps ad the end of the " + str(Acc) + "-hourly accumulation period [hours]", fontsize=16, labelpad=10)
@@ -87,7 +86,7 @@ for vre in VRE_list:
       ax.legend(loc="upper center", bbox_to_anchor=(0.5, 1.085), ncol=3, fontsize=16, frameon=False)
       ax.grid()
 
-      # Saving the AROC plot
+      # Saving the AROCt and AROCz plots
       DirOUT_temp= Git_repo + "/" + DirOUT + "/" + f"{Acc:02d}" + "h"
       FileNameOUT_temp = "AROC_" + f"{Acc:02d}" + "h_" + SystemFC + "_" + str(vre) + ".jpeg"
       if not os.path.exists(DirOUT_temp):

@@ -73,7 +73,7 @@ for vre in VRE_list:
 
       # Saving the BSrel plot
       DirOUT_temp= Git_repo + "/" + DirOUT + "/" + f"{Acc:02d}" + "h"
-      FileNameOUT_temp = "BSrel_" + f"{Acc:02d}" + "h_" + SystemFC + "_" + str(vre) + ".jpeg"
+      FileNameOUT_temp = "BSrel_" + f"{Acc:02d}" + "h_" + str(vre) + ".jpeg"
       if not os.path.exists(DirOUT_temp):
             os.makedirs(DirOUT_temp)
       plt.savefig(DirOUT_temp + "/" + FileNameOUT_temp)

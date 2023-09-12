@@ -88,7 +88,7 @@ for vre in VRE_list:
 
       # Saving the AROCt and AROCz plots
       DirOUT_temp= Git_repo + "/" + DirOUT + "/" + f"{Acc:02d}" + "h"
-      FileNameOUT_temp = "AROCt_AROCz_" + f"{Acc:02d}" + "h_" + SystemFC + "_" + str(vre) + ".jpeg"
+      FileNameOUT_temp = "AROCt_AROCz_" + f"{Acc:02d}" + "h_" + str(vre) + ".jpeg"
       if not os.path.exists(DirOUT_temp):
             os.makedirs(DirOUT_temp)
       plt.savefig(DirOUT_temp + "/" + FileNameOUT_temp)

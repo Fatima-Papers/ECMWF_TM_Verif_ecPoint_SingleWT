@@ -8,7 +8,7 @@ from sklearn.metrics import r2_score
 ##########################################################################################################
 # CODE DESCRIPTION
 # 02_Compute_Real_Binormal_HR_FAR_NoBS.py computes real and binormal hit rates (HRs) and false alarm rates (FARs). 
-# Code runtime: the code take up to 90 minutes to run in serial.
+# Code runtime: the code take up to 180 minutes to run in serial.
 
 # INPUT PARAMETERS DESCRIPTION
 # DateS (date, in format YYYYMMDD): start date of the considered verification period.

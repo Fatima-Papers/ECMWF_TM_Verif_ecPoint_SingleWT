@@ -100,7 +100,7 @@ def binormal_HR_FAR(hr, far):
       y_LR = predict(x_LR)
       r2 = r2_score(HRz_inv,y_LR)
     
-      return HRz, FARz, x_LR, y_LR, r2
+      return HRz, FARz, HRz_inv, FARz_inv, x_LR, y_LR, r2
 
 ##################################################################################################
 
@@ -155,7 +155,7 @@ for indSystemFC in range(len(SystemFC_list)):
                   HR, FAR = real_HR_FAR(Count_EM_original, Count_OBS_original, NumEM)
                   
                   # Computing the "binormal" HRs and FARs
-                  HRz, FARz, x_LR, y_LR, r2 = binormal_HR_FAR(HR,FAR)
+                  HRz, FARz, HRz_inv, FARz_inv, x_LR, y_LR, r2 = binormal_HR_FAR(HR,FAR)
 
                   # Saving the "real" and "binormal" HRs and FARs, and the variables that determine the good of fitness of binormal model for fitting the "real" ROC curve
                   FileNameOUT_temp = "HR_" + f"{Acc:02d}" + "h_" + SystemFC + "_" + str(vre) + "_" + f"{StepF:03d}"
@@ -168,6 +168,10 @@ for indSystemFC in range(len(SystemFC_list)):
                   FileNameOUT_temp = "FARz_" + f"{Acc:02d}" + "h_" + SystemFC + "_" + str(vre) + "_" + f"{StepF:03d}"
                   np.save(MainDirOUT + "/" +  FileNameOUT_temp, FARz)
                   
+                  FileNameOUT_temp = "HRz_inv_" + f"{Acc:02d}" + "h_" + SystemFC + "_" + str(vre) + "_" + f"{StepF:03d}"
+                  np.save(MainDirOUT + "/" +  FileNameOUT_temp, HRz_inv) 
+                  FileNameOUT_temp = "FARz_inv_" + f"{Acc:02d}" + "h_" + SystemFC + "_" + str(vre) + "_" + f"{StepF:03d}"
+                  np.save(MainDirOUT + "/" +  FileNameOUT_temp, FARz_inv)
                   FileNameOUT_temp = "x_LR_" + f"{Acc:02d}" + "h_" + SystemFC + "_" + str(vre) + "_" + f"{StepF:03d}"
                   np.save(MainDirOUT + "/" +  FileNameOUT_temp, x_LR) 
                   FileNameOUT_temp = "y_LR_" + f"{Acc:02d}" + "h_" + SystemFC + "_" + str(vre) + "_" + f"{StepF:03d}"

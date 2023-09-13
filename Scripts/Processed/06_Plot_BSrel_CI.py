@@ -34,7 +34,7 @@ DirOUT = "Data/Plot/06_BSrel_CI"
 for vre in VRE_list:
 
       # Setting the figure
-      fig, ax = plt.subplots(figsize=(17, 13))
+      fig, ax = plt.subplots(figsize=(16, 13))
       
       # Plotting the BSrel values for a specific forecasting system
       for indSystemFC in range(len(SystemFC_list)):
@@ -61,14 +61,14 @@ for vre in VRE_list:
 
       # Setting the BSrel plot metadata
       DiscStep = ((StepF[-1] - StepF[0]) / (len(StepF)-1))
-      ax.set_title("Brier Score - Reliability Component\n VRE>=" + str(vre) + "mm/" + str(Acc) + "h, CL=" + str(CL) + "%\n ", fontsize=20, pad=20, weight="bold")
-      ax.set_xlabel("Step ad the end of the " + str(Acc) + "-hourly accumulation period [hours]", fontsize=16, labelpad=20)
-      ax.set_ylabel("Brier Score - Reliability [-]", fontsize=16, labelpad=10)
+      ax.set_title("Brier Score - Reliability Component (BSrel)\n VRE>=" + str(vre) + "mm/" + str(Acc) + "h, CL=" + str(CL) + "%\n ", fontsize=24, pad=20, weight="bold")
+      ax.set_xlabel("Steps ad the end of the " + str(Acc) + "-hourly accumulation period [hours]", fontsize=20, labelpad=20)
+      ax.set_ylabel("BSrel [-]", fontsize=20, labelpad=10)
       ax.set_xlim([StepF[0]-1, StepF[-1]+1])
       ax.set_xticks(np.arange(StepF[0], (StepF[-1]+1), DiscStep))
-      ax.xaxis.set_tick_params(labelsize=16, rotation=90)
-      ax.yaxis.set_tick_params(labelsize=16)
-      ax.legend(loc="upper center", bbox_to_anchor=(0.5, 1.05), ncol=3, fontsize=16, frameon=False)
+      ax.xaxis.set_tick_params(labelsize=20, rotation=90)
+      ax.yaxis.set_tick_params(labelsize=20)
+      ax.legend(loc="upper center", bbox_to_anchor=(0.5, 1.06), ncol=3, fontsize=20, frameon=False)
       ax.grid()
 
       # Saving the BSrel plot

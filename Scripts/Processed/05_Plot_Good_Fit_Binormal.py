@@ -47,7 +47,7 @@ for vre in VRE_list:
             print(" - Plotting the 'real' and 'binormal' ROC curves for VRE >= " + str(vre) + " mm/" + str(Acc) + "h and StepF = " + str(StepF))
 
             # Initialize figure that will plot the goodness fit test
-            fig, axs = plt.subplots(1,3, figsize=(27, 14))
+            fig, axs = plt.subplots(1,3, figsize=(29, 15))
 
             # Plotting the goodness fit test for a specific forecasting system
             ind_SystemFC = 0
@@ -71,17 +71,17 @@ for vre in VRE_list:
                   # Plotting the goodness fit test
                   axs[ind_SystemFC].plot(x_LR, y_LR, "b-")
                   axs[ind_SystemFC].plot(FARz_inv, HRz_inv, "ro")
-                  axs[ind_SystemFC].set_title(SystemFC, fontsize=24, pad = 10)
-                  axs[ind_SystemFC].set_xlabel("Z-score of False Alarm Rate", fontsize=24, labelpad=15)
-                  axs[ind_SystemFC].set_ylabel("Z-score of Hit Rate", fontsize=24)
-                  axs[ind_SystemFC].xaxis.set_tick_params(labelsize=24)
-                  axs[ind_SystemFC].yaxis.set_tick_params(labelsize=24)
-                  
+                  axs[ind_SystemFC].set_title(SystemFC, fontsize=30, pad = 10)
+                  axs[ind_SystemFC].set_xlabel("Z-score of False Alarm Rate", fontsize=30, labelpad=20)
+                  axs[ind_SystemFC].set_ylabel("Z-score of Hit Rate", fontsize=30)
+                  axs[ind_SystemFC].xaxis.set_tick_params(labelsize=30)
+                  axs[ind_SystemFC].yaxis.set_tick_params(labelsize=30)
+
                   ind_SystemFC = ind_SystemFC + 1
 
             # Completing plot
-            fig.suptitle("Goodness fit test for binormal approximation of ROC curve\n VRE>=" + str(vre) + "mm/" + str(Acc) + "h, StepF = " + str(StepF) + "\n \n ", fontsize=24, weight="bold")
-            
+            fig.suptitle("Goodness fit test for binormal approximation of ROC curve\n VRE>=" + str(vre) + "mm/" + str(Acc) + "h, StepF = " + str(StepF), fontsize=30, weight="bold", y = 1)
+
             # Saving the "real" and "binormal" ROC curves
             print(" - Saving the plot")
             FileNameOUT_temp = "Goodness_Fit_Test_Binormal_" + f"{Acc:02d}" + "h_" + str(vre) + "_" + f"{StepF:03d}" + ".jpeg"

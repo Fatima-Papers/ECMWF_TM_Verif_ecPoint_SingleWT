@@ -69,8 +69,8 @@ for vre in VRE_list:
                   FARz_inv = np.load(DirIN_temp + "/" + FileIN_FARz_inv)
 
                   # Plotting the goodness fit test
-                  axs[ind_SystemFC].plot(x_LR, y_LR, "b-")
-                  axs[ind_SystemFC].plot(FARz_inv, HRz_inv, "ro")
+                  axs[ind_SystemFC].plot(x_LR, y_LR, "b-", linewidth=4)
+                  axs[ind_SystemFC].plot(FARz_inv, HRz_inv, "ro", markersize = 12)
                   axs[ind_SystemFC].set_title(SystemFC, fontsize=30, pad = 10)
                   axs[ind_SystemFC].set_xlabel("Z-score of False Alarm Rate", fontsize=30, labelpad=20)
                   axs[ind_SystemFC].set_ylabel("Z-score of Hit Rate", fontsize=30)
@@ -81,7 +81,7 @@ for vre in VRE_list:
 
             # Completing plot
             fig.suptitle("Goodness fit test for binormal approximation of ROC curve\n VRE>=" + str(vre) + "mm/" + str(Acc) + "h, StepF = " + str(StepF), fontsize=30, weight="bold", y = 1)
-
+            
             # Saving the "real" and "binormal" ROC curves
             print(" - Saving the plot")
             FileNameOUT_temp = "Goodness_Fit_Test_Binormal_" + f"{Acc:02d}" + "h_" + str(vre) + "_" + f"{StepF:03d}" + ".jpeg"

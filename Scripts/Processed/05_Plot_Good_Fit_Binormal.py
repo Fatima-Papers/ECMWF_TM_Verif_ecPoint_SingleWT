@@ -1,6 +1,7 @@
 import os
 import numpy as np
 import matplotlib.pyplot as plt
+from matplotlib.ticker import FormatStrFormatter
 
 ##############################################################################
 # CODE DESCRIPTION
@@ -25,7 +26,7 @@ StepF_Start =12
 StepF_Final = 246
 Disc_Step = 6
 Acc = 12
-VRE_list = [0.2,10, 25, 50]
+VRE_list = [0.2, 10, 25, 50]
 SystemFC_list = ["ENS", "ecPoint_MultipleWT", "ecPoint_SingleWT"]
 Colour_SystemFC_list = ["darkcyan", "darkorange", "grey"]
 Git_repo = "/ec/vol/ecpoint_dev/mofp/Papers_2_Write/ECMWF_TM_Verif_ecPoint_SingleWT"
@@ -47,7 +48,7 @@ for vre in VRE_list:
             print(" - Plotting the 'real' and 'binormal' ROC curves for VRE >= " + str(vre) + " mm/" + str(Acc) + "h and StepF = " + str(StepF))
 
             # Initialize figure that will plot the goodness fit test
-            fig, axs = plt.subplots(1,3, figsize=(29, 15))
+            fig, axs = plt.subplots(1,3, figsize=(36, 15))
 
             # Plotting the goodness fit test for a specific forecasting system
             ind_SystemFC = 0
@@ -76,12 +77,13 @@ for vre in VRE_list:
                   axs[ind_SystemFC].set_ylabel("Z-score of Hit Rate", fontsize=30)
                   axs[ind_SystemFC].xaxis.set_tick_params(labelsize=30)
                   axs[ind_SystemFC].yaxis.set_tick_params(labelsize=30)
+                  axs[ind_SystemFC].yaxis.set_major_formatter(FormatStrFormatter('%.1f'))
 
                   ind_SystemFC = ind_SystemFC + 1
 
             # Completing plot
             fig.suptitle("Goodness fit test for binormal approximation of ROC curve\n VRE>=" + str(vre) + "mm/" + str(Acc) + "h, StepF = " + str(StepF), fontsize=30, weight="bold", y = 1)
-            
+
             # Saving the "real" and "binormal" ROC curves
             print(" - Saving the plot")
             FileNameOUT_temp = "Goodness_Fit_Test_Binormal_" + f"{Acc:02d}" + "h_" + str(vre) + "_" + f"{StepF:03d}" + ".jpeg"

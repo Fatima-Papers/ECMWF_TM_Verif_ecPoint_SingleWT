@@ -23,7 +23,7 @@ Acc = 12
 VRE_list = [0.2, 10, 25, 50]
 CL = 99
 SystemFC_list = ["ENS", "ecPoint_MultipleWT", "ecPoint_SingleWT"]
-Colour_SystemFC_list = ["darkcyan", "purple", "gray"]
+Colour_SystemFC_list = ["darkcyan", "orangered", "dimgray"]
 Git_repo = "/ec/vol/ecpoint_dev/mofp/Papers_2_Write/ECMWF_TM_Verif_ecPoint_SingleWT"
 DirIN = "Data/Compute/03_BSrel_AROCt_AROCz_BS"
 DirOUT = "Data/Plot/07_AROCt_AROCz_CI"
@@ -68,7 +68,7 @@ for vre in VRE_list:
 
             # Plotting the AROCt and AROCz values with their CI
             ax.plot(StepF, aroc, "o-", color=Colour_SystemFC, label="AROCt, " + SystemFC, linewidth=4)
-            ax.plot(StepF, arocz, "o--", color=Colour_SystemFC, label="AROCz, " + SystemFC, linewidth=2)
+            ax.plot(StepF, arocz, "o--", color=Colour_SystemFC, label="AROCz, " + SystemFC, linewidth=4)
             ax.fill_between(StepF, CI_lower, CI_upper, color=Colour_SystemFC, alpha=0.2, edgecolor="none")
             ax.fill_between(StepF, CIz_lower, CIz_upper, color=Colour_SystemFC, alpha=0.2, edgecolor="none")
 

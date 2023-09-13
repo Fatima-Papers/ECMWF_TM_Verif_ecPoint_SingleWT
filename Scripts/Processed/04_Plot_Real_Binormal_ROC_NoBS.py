@@ -27,7 +27,7 @@ Disc_Step = 6
 Acc = 12
 VRE_list = [0.2,10,25,50]
 SystemFC_list = ["ENS", "ecPoint_MultipleWT", "ecPoint_SingleWT"]
-Colour_SystemFC_list = ["darkcyan", "darkorange", "grey"]
+Colour_SystemFC_list = ["darkcyan", "orangered", "dimgray"]
 Git_repo = "/ec/vol/ecpoint_dev/mofp/Papers_2_Write/ECMWF_TM_Verif_ecPoint_SingleWT"
 DirIN_HR_FAR = "Data/Compute/02_Real_Binormal_HR_FAR_NoBS"
 DirIN_AROC = "Data/Compute/03_BSrel_AROCt_AROCz_BS"
@@ -49,7 +49,7 @@ for vre in VRE_list:
             print(" - Plotting the 'real' and 'binormal' ROC curves for VRE >= " + str(vre) + " mm/" + str(Acc) + "h and StepF = " + str(StepF))
 
             # Initialize figure that will plot the "real" and "binormal" ROC curves
-            plt.figure(figsize=(10,10))
+            plt.figure(figsize=(12,12))
 
             # Plotting the "real" and "binormal" ROC curves for a specific forecasting system
             for indSystemFC in range(len(SystemFC_list)):
@@ -81,19 +81,19 @@ for vre in VRE_list:
                   # Plotting the "real" and "binormal" ROC curves
                   label_real = "ROC, " + SystemFC + " (AROCt = " + str(round(AROCt[ind_StepF,1],3)) + ")"
                   label_binormal = "ROCz, " + SystemFC + " (AROCz = " + str(round(AROCz[ind_StepF,1],3)) + ")"
-                  plt.plot(FAR, HR, "o-", color=Colour_SystemFC, label=label_real, linewidth=2)
-                  plt.plot(FARz, HRz, "--", color=Colour_SystemFC, label=label_binormal, linewidth=2)
+                  plt.plot(FAR, HR, "o-", color=Colour_SystemFC, label=label_real, linewidth=3)
+                  plt.plot(FARz, HRz, "--", color=Colour_SystemFC, label=label_binormal, linewidth=3)
                   
             # Compliting the plot
             plt.plot([0,1], [0,1], "-", color="black", linewidth=3)
-            plt.title("ROC curves, Real (ROC) and Binormal (ROCz)\n VRE >= " + str(vre) + "mm/" + str(Acc) + "h, StepF = " + str(StepF), fontsize = 20, pad=20, weight="bold")
-            plt.xlabel(" \n False Alarm Rate [FAR, -]", fontsize = 16)
-            plt.ylabel("Hit Rate [HR, -]\n ", fontsize = 16)
+            plt.title("ROC curves, Real (ROC) and Binormal (ROCz)\n VRE >= " + str(vre) + "mm/" + str(Acc) + "h, StepF = " + str(StepF), fontsize = 24, pad=20, weight="bold")
+            plt.xlabel("False Alarm Rate, FAR [-]", fontsize = 24, labelpad=10)
+            plt.ylabel("Hit Rate, HR [-]", fontsize = 24, labelpad=10)
             plt.xlim(0,1)
-            plt.xticks(np.arange(0,1.1, 0.1), fontsize = 16)
+            plt.xticks(np.arange(0,1.1, 0.1), fontsize = 24)
             plt.ylim(0,1)
-            plt.yticks(np.arange(0,1.1, 0.1), fontsize = 16)
-            plt.legend(loc="lower right", fontsize=15)
+            plt.yticks(np.arange(0,1.1, 0.1), fontsize = 24)
+            plt.legend(loc="lower right", fontsize=18)
             plt.grid(True, color = "grey", linewidth = 0.5)
 
             # Saving the "real" and "binormal" ROC curves

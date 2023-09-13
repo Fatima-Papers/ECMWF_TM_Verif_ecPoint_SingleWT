@@ -23,7 +23,7 @@ Acc = 12
 VRE_list = [0.2, 10, 25, 50]
 CL = 99
 SystemFC_list = ["ENS", "ecPoint_MultipleWT", "ecPoint_SingleWT"]
-Colour_SystemFC_list = ["darkcyan", "darkorange", "grey"]
+Colour_SystemFC_list = ["darkcyan", "purple", "gray"]
 Git_repo = "/ec/vol/ecpoint_dev/mofp/Papers_2_Write/ECMWF_TM_Verif_ecPoint_SingleWT"
 DirIN = "Data/Compute/03_BSrel_AROCt_AROCz_BS"
 DirOUT = "Data/Plot/07_AROCt_AROCz_CI"
@@ -34,7 +34,7 @@ DirOUT = "Data/Plot/07_AROCt_AROCz_CI"
 for vre in VRE_list:
 
       # Setting the figure
-      fig, ax = plt.subplots(figsize=(16, 14))
+      fig, ax = plt.subplots(figsize=(17, 15))
       
       # Plotting the AROCt and AROCz values for a specific forecasting system
       for indSystemFC in range(len(SystemFC_list)):
@@ -67,23 +67,23 @@ for vre in VRE_list:
             CIz_upper = np.nanpercentile(arocz_BS, 100 - (alpha/2), axis=1)
 
             # Plotting the AROCt and AROCz values with their CI
-            ax.plot(StepF, aroc, "o-", color=Colour_SystemFC, label="AROCt, " + SystemFC, linewidth=2)
+            ax.plot(StepF, aroc, "o-", color=Colour_SystemFC, label="AROCt, " + SystemFC, linewidth=4)
             ax.plot(StepF, arocz, "o--", color=Colour_SystemFC, label="AROCz, " + SystemFC, linewidth=2)
             ax.fill_between(StepF, CI_lower, CI_upper, color=Colour_SystemFC, alpha=0.2, edgecolor="none")
             ax.fill_between(StepF, CIz_lower, CIz_upper, color=Colour_SystemFC, alpha=0.2, edgecolor="none")
 
       # Completing the AROCt and AROCz plots
       DiscStep = ((StepF[-1] - StepF[0]) / (len(StepF)-1))
-      ax.set_title("Area Under the ROC curve, Trapezoidal (AROCt) and Binormal (AROCz)\n VRE>=" + str(vre) + "mm/" + str(Acc) + "h, CL=" + str(CL) + "%\n \n ", fontsize=24, pad=20, weight="bold")
-      ax.set_xlabel(" \nSteps ad the end of the " + str(Acc) + "-hourly accumulation period [hours]", fontsize=20, labelpad=10)
-      ax.set_ylabel("AROCt and AROCz [-]", fontsize=20, labelpad=10)
+      ax.set_title("Area Under the ROC curve, Trapezoidal (AROCt) and Binormal (AROCz)\n VRE>=" + str(vre) + "mm/" + str(Acc) + "h, CL=" + str(CL) + "%\n \n ", fontsize=24, pad=25, weight="bold")
+      ax.set_xlabel("Steps ad the end of the " + str(Acc) + "-hourly accumulation period [hours]", fontsize=24, labelpad=20)
+      ax.set_ylabel("AROCt and AROCz [-]", fontsize=24, labelpad=5)
       ax.set_xlim([StepF[0]-1, StepF[-1]+1])
       ax.set_ylim([0.5,1])
       ax.set_xticks(np.arange(StepF[0], (StepF[-1]+1), DiscStep))
       ax.set_yticks(np.arange(0.5,1.01, 0.1))
-      ax.xaxis.set_tick_params(labelsize=20, rotation=90)
-      ax.yaxis.set_tick_params(labelsize=20)
-      ax.legend(loc="upper center", bbox_to_anchor=(0.5, 1.1), ncol=3, fontsize=20, frameon=False)
+      ax.xaxis.set_tick_params(labelsize=24, rotation=90)
+      ax.yaxis.set_tick_params(labelsize=24)
+      ax.legend(loc="upper center", bbox_to_anchor=(0.5, 1.09), ncol=3, fontsize=20, frameon=False)
       ax.grid()
 
       # Saving the AROCt and AROCz plots

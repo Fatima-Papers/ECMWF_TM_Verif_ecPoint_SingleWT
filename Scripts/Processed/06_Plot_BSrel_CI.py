@@ -55,7 +55,7 @@ for vre in VRE_list:
             bsrel_real = np.load(DirIN_temp + "/" + FileNameIN_temp)[:,1]
             bsrel_BS = np.load(DirIN_temp + "/" + FileNameIN_temp)[:,2:]
 
-            # Computing the confidence intervals from the bootstrapped BSrel values
+            # # Computing the confidence intervals from the bootstrapped BSrel values
             alpha = 100 - CL # significance level (in %) 
             CI_lower = np.nanpercentile(bsrel_BS, alpha/2, axis=1)
             CI_upper = np.nanpercentile(bsrel_BS, 100 - (alpha/2), axis=1)

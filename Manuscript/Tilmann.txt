@@ -1,0 +1,30 @@
+- Receiver operating characteristic (ROC) curves are key tools in the evaluation of predictive potential (Fawcett 2006; Flach 2016).
+
+- A ROC curve is simply a plot of the hit rate (HR) against the false alarm rate (FAR) across the range of thresholds for a real-valued score. (see similar definition in Zied's paper).
+
+- The term raw ROC diagnostic refers to the set-theoretic union of the points of the form (FAR(s), HR(s)) within the unit square. The ROC curve is a linearly interpolated raw ROC diagnostic, and therefore it also is a point set that may or may not admit a direct interpretation as a function.
+
+- High hit rates and low false alarm rates are desirable, so the area under the ROC curve (AUC) is a widely used, positively oriented measure of the predictive potential of a score or feature. 
+
+- In this setting, it sufces to consider the unique values of s1, … ,sn to generate the raw ROC diagnostic, and linear interpolation yields the empirical ROC curve.
+
+- In this setting ROC diagnostics concern the points of the form (FAR(s), HR(s)) within the unit square.
+
+- a ROC curve is obtained from the raw ROC diagnostic by linear interpolation.
+
+- The choice of linear interpolation to complete the raw ROC diagnostic into the ROC curve (3) is natural and persuasive, as the line segment Ls represents randomized combinations of the classifers associated with its end points.
+
+- binormal and beta ROC curves ftted to the empirical ROC curves
+
+-  In the unrestricted case, the binormal and beta fts are visually nearly indistinguishable. The ftted binormal ROC curves fail to be concave and change markedly when concavity is enforced. For the beta ROC curves, the diferences between restricted and unrestricted fts are less pronounced, and in the example from Vogel et al. (2018) the unrestricted ft is concave.
+
+- our goodness-of-fit test rejects both the unrestricted and the concave binormal model, but does not reject the beta model—so the use of the more fexible beta family is of relevance and import. Generally, in the constrained case the improvement in the ft under the more fexible beta model as compared to the classical binormal model is substantial.
+
+
+REFERENCES
+
+Fawcett, T. (2006). An introduction to ROC analysis. Pattern Recognition Letters, 27, 861–874
+
+Flach, P. A. (2016). ROC analysis. In C. Sammut & G. I. Webb (Eds.), Encyclopedia of Machine Learning
+and Data Mining. Boston: Springer
+

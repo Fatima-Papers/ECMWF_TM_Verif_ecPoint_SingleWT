@@ -13,7 +13,8 @@ import metview as mv
 # StepF (integer, in hours): step corresponding to end of the accumulation period. 
 # Acc (number, in hours): rainfall accumulation to consider.
 # Thr (float, in mm): rainfall threshold to consider.
-# SystemFC (strings): forecasting systems to consider.
+# Operator (string): operator indicating whether the probabilities are computed for tp >= or < Thr.
+# SystemFC_list (list of strings): list of the forecasting systems to consider.
 # Git_repo (string): repository's local path.
 # DirIN (string): relative path containing the forecasts.
 # DirOUT (string): relative path of the directory containing the forecast probability's map plots.

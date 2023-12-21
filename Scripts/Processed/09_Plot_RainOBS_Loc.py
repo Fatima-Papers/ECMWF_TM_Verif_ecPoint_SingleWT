@@ -8,14 +8,12 @@ import metview as mv
 # Note: runtime negligible.
 
 # INPUT PARAMETERS DESCRIPTION
+# TheDate (date, in YYYYMMDD format): date to consider for the observations.
 # Acc (number, in hours): rainfall accumulation to consider.
-# VRE_list (list of floats, from 0 to infinite, in mm): list of verifing rainfall events (VRE).
-# CL (integer from 0 to 100, in percent): confidence level for the definition of the confidence intervals.
-# SystemFC_list (list of strings): list of names of forecasting systems to consider.
-# Colour_SystemFC_list (list of strings): colours used to plot the BSrel values for different forecasting systems.
+# StartPeriod_list (list of integers): list of the accumulation period's starting time.
 # Git_repo (string): repository's local path.
-# DirIN (string): relative path containing the real and boostrapped BSrel values.
-# DirOUT (string): relative path of the directory containing the plots of the real and boostrapped BSrel values.
+# DirIN (string): relative path containing the raw observations.
+# DirOUT (string): relative path of the directory containing the plots of rainfall gauge's locations.
 
 # INPUT PARAMETERS
 TheDate = datetime(2021,12,11)

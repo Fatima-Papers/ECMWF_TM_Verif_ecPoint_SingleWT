@@ -25,8 +25,8 @@ import matplotlib.pyplot as plt
 # INPUT PARAMETERS
 DateS = datetime(2021, 12, 1, 0)
 DateF = datetime(2022, 11, 30, 0)
-StepF_Start = 24
-StepF_Final = 24
+StepF_Start = 12
+StepF_Final = 246
 Disc_Step = 6
 Acc = 12
 VRT_list = [0.2, 10, 50]

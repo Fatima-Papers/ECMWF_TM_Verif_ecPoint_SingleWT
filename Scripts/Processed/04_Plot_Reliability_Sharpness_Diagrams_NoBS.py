@@ -25,8 +25,8 @@ import matplotlib.pyplot as plt
 # INPUT PARAMETERS
 DateS = datetime(2021, 12, 1, 0)
 DateF = datetime(2022, 11, 30, 0)
-StepF_Start = 12
-StepF_Final = 246
+StepF_Start = 24
+StepF_Final = 24
 Disc_Step = 6
 Acc = 12
 VRT_list = [0.2, 10, 50]
@@ -105,12 +105,12 @@ for VRT in VRT_list:
 
                   # Plotting the reliability and sharpness diagrams
                   ax1.plot(rel_freq_fc, rel_freq_obs, "-", color=Colour_SystemFC, label=SystemFC, linewidth=2)
-                  ax2.plot(rel_freq_fc, rel_freq_obs, "-", color=Colour_SystemFC, label=SystemFC, linewidth=2)
+                  ax2.plot(rel_freq_fc, rel_freq_obs, "-", color=Colour_SystemFC, label=SystemFC, linewidth=4)
                   ax3.plot(rel_freq_fc, abs_freq_fc, "-", color=Colour_SystemFC, label=SystemFC, linewidth=2)
             
             # Set the reliability diagram
             ax1.plot([0,1], [0,1], "-", color="black", linewidth=3)
-            ax1.set_title("Reliability diagram\n VRT>=" + str(VRT) + "mm/" + str(Acc) + "h\n ", fontsize=18, pad=20, weight="bold")
+            ax1.set_title("Reliability diagram\n VRT>=" + str(VRT) + "mm/" + str(Acc) + "h, StepF=" + str(StepF) + "\n ", fontsize=18, pad=20, weight="bold")
             ax1.set_xlabel("Forecast probabilities", fontsize=16, labelpad=10)
             ax1.set_ylabel("Observation relative frequency", fontsize=16, labelpad=10)
             ax1.set_xlim([0,1])
@@ -120,23 +120,25 @@ for VRT in VRT_list:
             ax1.xaxis.set_tick_params(labelsize=16)
             ax1.yaxis.set_tick_params(labelsize=16)
             ax1.legend(loc="upper center", bbox_to_anchor=(0.5, 1.07), ncol=3, fontsize=16, frameon=False)
+            ax1.grid()
 
             # Set the zoomed reliability diagram
             ax2.plot([0,1], [0,1], "-", color="black", linewidth=3)
-            ax2.set_title("Reliability diagram (zoomed in)\n VRT>=" + str(VRT) + "mm/" + str(Acc) + "h\n ", fontsize=18, pad=20, weight="bold")
+            ax2.set_title("Reliability diagram (zoomed in)\n VRT>=" + str(VRT) + "mm/" + str(Acc) + "h, StepF=" + str(StepF) + "\n ", fontsize=18, pad=20, weight="bold")
             ax2.set_xlabel("Forecast probabilities", fontsize=16, labelpad=10)
             ax2.set_ylabel("Observation relative frequency", fontsize=16, labelpad=10)
-            ax2.set_xlim([0,0.2])
-            ax2.set_ylim([0,0.2])
-            ax2.set_xticks(np.arange(0, 0.3, 0.05))
-            ax2.set_yticks(np.arange(0, 0.3, 0.05))
-            ax2.xaxis.set_tick_params(labelsize=16)
-            ax2.yaxis.set_tick_params(labelsize=16)
+            ax2.set_xlim([0,0.1])
+            ax2.set_ylim([0,0.1])
+            ax2.set_xticks(np.arange(0, 0.11, 0.01))
+            ax2.set_yticks(np.arange(0, 0.11, 0.01))
+            ax2.xaxis.set_tick_params(labelsize=20)
+            ax2.yaxis.set_tick_params(labelsize=20)
             ax2.legend(loc="upper center", bbox_to_anchor=(0.5, 1.07), ncol=3, fontsize=16, frameon=False)
+            ax2.grid()
 
             # Set the sharpness diagram
             ax3.set_yscale('log')
-            ax3.set_title("Sharpness diagram\n VRT>=" + str(VRT) + "mm/" + str(Acc) + "h\n ", fontsize=18, pad=20, weight="bold")
+            ax3.set_title("Sharpness diagram\n VRT>=" + str(VRT) + "mm/" + str(Acc) + "h, StepF=" + str(StepF) + "\n ", fontsize=18, pad=20, weight="bold")
             ax3.set_xlabel("Forecast probabilities", fontsize=16, labelpad=10)
             ax3.set_ylabel("Forecast absolute frequency", fontsize=16, labelpad=10)
             ax3.set_xlim([0,1])
@@ -145,6 +147,7 @@ for VRT in VRT_list:
             ax3.xaxis.set_tick_params(labelsize=16)
             ax3.yaxis.set_tick_params(labelsize=16)
             ax3.legend(loc="upper center", bbox_to_anchor=(0.5, 1.07), ncol=3, fontsize=16, frameon=False)
+            ax3.grid()
 
             # Saving the reliability and sharpness diagrams
             DirOUT_temp= Git_repo + "/" + DirOUT + "/" + f"{Acc:02d}" + "h/" + str(VRT) 

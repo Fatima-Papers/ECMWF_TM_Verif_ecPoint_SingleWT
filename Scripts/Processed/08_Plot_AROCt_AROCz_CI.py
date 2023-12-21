@@ -34,7 +34,7 @@ DirOUT = "Data/Plot/07_AROCt_AROCz_CI"
 for vre in VRE_list:
 
       # Setting the figure
-      fig, ax = plt.subplots(figsize=(17, 15))
+      fig, ax = plt.subplots(figsize=(17, 13))
       
       # Plotting the AROCt and AROCz values for a specific forecasting system
       for indSystemFC in range(len(SystemFC_list)):

@@ -27,7 +27,7 @@ SystemFC_list = ["ENS", "ecPoint_MultipleWT", "ecPoint_SingleWT"]
 Colour_SystemFC_list = ["darkcyan", "orangered", "dimgray"]
 Git_repo = "/ec/vol/ecpoint_dev/mofp/Papers_2_Write/Verif_ecPoint_SingleWT"
 DirIN = "Data/Compute/02_BSrel_BS"
-DirOUT = "Data/Plot/06_BSrel_CI"
+DirOUT = "Data/Plot/03_BSrel_CI"
 ########################################################################################
 
 
@@ -79,7 +79,6 @@ for VRT in VRT_list:
       ax.yaxis.set_tick_params(labelsize=24)
       ax.legend(loc="upper center", bbox_to_anchor=(0.5, 1.06), ncol=3, fontsize=20, frameon=False)
       ax.grid(linewidth=0.5)
-      plt.show()
 
       # Saving the BSrel plot
       DirOUT_temp= Git_repo + "/" + DirOUT + "/" + f"{Acc:02d}" + "h"

@@ -1,0 +1,16 @@
+-100,-100,PYTHON,01_Compute_Count_EM_OBS_Exceeding_VRT.py
+-100,-100,SHELL,01a_SubmitATOS_Count_EM_OBS_Exceeding_VRT.sh
+-100,-100,SHELL,01b_Wrapper_Count_EM_OBS_Exceeding_VRT.sh
+-100,-100,PYTHON,02_Compute_BSrel_BS.py
+-100,-100,SHELL,02a_SubmitATOS_BSrel_BS.sh
+-100,-100,SHELL,02b_Wrapper_BSrel_BS.sh
+-100,-100,PYTHON,03_Plot_BSrel_CI.py
+-100,-100,PYTHON,04_Plot_Reliability_Sharpness_Diagrams_NoBS.py
+-100,-100,PYTHON,05_Compute_Real_Binormal_HR_FAR_NoBS.py
+-100,-100,PYTHON,06_Plot_Real_Binormal_ROC_NoBS.py
+-100,-100,PYTHON,07_Compute_AROCt_AROCz_BS.py
+-100,-100,PYTHON,08_Plot_AROCt_AROCz_CI.py
+-100,-100,PYTHON,09_Plot_RainOBS_Loc.py
+-100,-100,PYTHON,10_Plot_ProbFC.py
+-100,-100,FOLDER,LogATOS
+-100,-100,NOTE,README.md

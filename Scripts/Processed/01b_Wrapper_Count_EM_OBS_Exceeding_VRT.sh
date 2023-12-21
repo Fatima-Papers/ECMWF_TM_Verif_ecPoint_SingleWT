@@ -1,0 +1,14 @@
+#!/bin/bash
+
+sbatch 01a_SubmitATOS_Count_EM_OBS_Exceeding_VRT.sh 20211201 20211231
+sbatch 01a_SubmitATOS_Count_EM_OBS_Exceeding_VRT.sh 20220101 20220131
+sbatch 01a_SubmitATOS_Count_EM_OBS_Exceeding_VRT.sh 20220201 20220228
+sbatch 01a_SubmitATOS_Count_EM_OBS_Exceeding_VRT.sh 20220301 20220331
+sbatch 01a_SubmitATOS_Count_EM_OBS_Exceeding_VRT.sh 20220401 20220430
+sbatch 01a_SubmitATOS_Count_EM_OBS_Exceeding_VRT.sh 20220501 20220531
+sbatch 01a_SubmitATOS_Count_EM_OBS_Exceeding_VRT.sh 20220601 20220630
+sbatch 01a_SubmitATOS_Count_EM_OBS_Exceeding_VRT.sh 20220701 20220731
+sbatch 01a_SubmitATOS_Count_EM_OBS_Exceeding_VRT.sh 20220801 20220831
+sbatch 01a_SubmitATOS_Count_EM_OBS_Exceeding_VRT.sh 20220901 20220930
+sbatch 01a_SubmitATOS_Count_EM_OBS_Exceeding_VRT.sh 20221001 20221031
+sbatch 01a_SubmitATOS_Count_EM_OBS_Exceeding_VRT.sh 20221101 20221130

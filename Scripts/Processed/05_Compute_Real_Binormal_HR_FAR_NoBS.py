@@ -5,7 +5,7 @@ from scipy.stats import norm
 
 ##########################################################################################################
 # CODE DESCRIPTION
-# 04_Compute_Real_Binormal_HR_FAR_NoBS.py computes real and binormal hit rates (HRs) and false alarm rates (FARs). 
+# 05_Compute_Real_Binormal_HR_FAR.py computes real and binormal hit rates (HRs) and false alarm rates (FARs). 
 # Code runtime: the code take up to 8 hours to run in serial.
 
 # INPUT PARAMETERS DESCRIPTION
@@ -16,7 +16,6 @@ from scipy.stats import norm
 # Disc_Step (integer, in hours): discretization for the final steps to consider.
 # Acc (integer, in hours): rainfall accumulation to consider.
 # VRT_list (list of floats, from 0 to infinite, in mm): list of verifing rainfall events (VRT).
-# VRT_Oper_list (list of strings): list of operators associated with the VRT. Valid values are "less" and "more".
 # SystemFC_list (list of strings): list of names of forecasting systems to consider.
 # Git_repo (string): repository's local path.
 # DirIN (string): relative path of the input directory containing the counts of FC memebers and OBS exceeding the considered VRT.
@@ -29,12 +28,11 @@ StepF_Start = 12
 StepF_Final = 246
 Disc_Step = 6
 Acc = 12
-VRT_list = [0.2, 0.2, 10, 25, 50]
-VRT_Oper_list = ["less", "more", "more", "more", "more"]
+VRT_list = [0.2, 10, 25, 50]
 SystemFC_list = ["ENS", "ecPoint_MultipleWT", "ecPoint_SingleWT"]
 Git_repo = "/ec/vol/ecpoint_dev/mofp/Papers_2_Write/Verif_ecPoint_SingleWT"
 DirIN = "Data/Compute/01_Count_EM_OBS_Exceeding_VRT"
-DirOUT = "Data/Compute/04_Real_Binormal_HR_FAR_NoBS"
+DirOUT = "Data/Compute/05_Real_Binormal_HR_FAR_NoBS"
 ##########################################################################################################
 
 
@@ -108,28 +106,20 @@ for SystemFC in SystemFC_list:
             NumEM = 99
 
       # Computing the "real" and "binormal" HRs and FARs for a specific VRT
-      for ind_VRT in range(len(VRT_list)):
-
-            VRT = VRT_list[ind_VRT]
-            VRT_Oper = VRT_Oper_list[ind_VRT]
-
-            if VRT_Oper == "less":
-                  Oper = "<"
-            if VRT_Oper == "more":
-                  Oper = ">="
+      for VRT in VRT_list:
 
             # Computing the "real" and "binormal" HRs and FARs for a specific lead time
             for StepF in range(StepF_Start, (StepF_Final+1), Disc_Step):
 
-                  print(" - Computing and saving the 'real' and 'binormal' HRs and FARs for " + SystemFC +", VRT" + Oper + str(VRT) + ", StepF=" + str(StepF))
+                  print(" - Computing and saving the 'real' and 'binormal' HRs and FARs for " + SystemFC +", VRT>=" + str(VRT) + ", StepF=" + str(StepF))
 
                   # Reading the daily counts of ensemble members and observations exceeding the considered verifying rainfall threshold.
                   Count_EM_original = [] # initializing the variable that will contain the counts of ensemble members exceeding the VRT for the original dates
                   Count_OBS_original = [] # initializing the variable that will contain the counts of observations exceeding the VRT for the original dates
                   TheDate = DateS
                   while TheDate <= DateF:
-                        DirIN_temp = Git_repo + "/" + DirIN + "/" + f"{Acc:02d}" + "h/" + SystemFC + "/" + VRT_Oper + "_" + str(VRT) + "/" + TheDate.strftime("%Y%m%d%H")
-                        FileNameIN_temp = "Count_EM_OBS_" + f"{Acc:02d}" + "h_" + SystemFC + "_" + VRT_Oper + "_" + str(VRT) + "_" + TheDate.strftime("%Y%m%d") + "_" + TheDate.strftime("%H") + "_" + f"{StepF:03d}" + ".npy"
+                        DirIN_temp = Git_repo + "/" + DirIN + "/" + f"{Acc:02d}" + "h/" + SystemFC + "/" + "_" + str(VRT) + "/" + TheDate.strftime("%Y%m%d%H")
+                        FileNameIN_temp = "Count_EM_OBS_" + f"{Acc:02d}" + "h_" + SystemFC + "_" + str(VRT) + "_" + TheDate.strftime("%Y%m%d") + "_" + TheDate.strftime("%H") + "_" + f"{StepF:03d}" + ".npy"
                         if os.path.isfile(DirIN_temp + "/" + FileNameIN_temp): # proceed if the files exists
                               Count_EM_OBS = np.load(DirIN_temp + "/" + FileNameIN_temp)
                               Count_EM_original.extend(Count_EM_OBS[0].tolist())

@@ -28,7 +28,7 @@ StepF_Start = 12
 StepF_Final = 246
 Disc_Step = 6
 Acc = 12
-VRT_list = [0.2, 10, 25, 50]
+VRT_list = [0.2, 10, 50]
 SystemFC_list = ["ENS", "ecPoint_MultipleWT", "ecPoint_SingleWT"]
 Git_repo = "/ec/vol/ecpoint_dev/mofp/Papers_2_Write/Verif_ecPoint_SingleWT"
 DirIN = "Data/Compute/01_Count_EM_OBS_Exceeding_VRT"
@@ -118,7 +118,7 @@ for SystemFC in SystemFC_list:
                   Count_OBS_original = [] # initializing the variable that will contain the counts of observations exceeding the VRT for the original dates
                   TheDate = DateS
                   while TheDate <= DateF:
-                        DirIN_temp = Git_repo + "/" + DirIN + "/" + f"{Acc:02d}" + "h/" + SystemFC + "/" + "_" + str(VRT) + "/" + TheDate.strftime("%Y%m%d%H")
+                        DirIN_temp = Git_repo + "/" + DirIN + "/" + f"{Acc:02d}" + "h/" + SystemFC + "/" + str(VRT) + "/" + TheDate.strftime("%Y%m%d%H")
                         FileNameIN_temp = "Count_EM_OBS_" + f"{Acc:02d}" + "h_" + SystemFC + "_" + str(VRT) + "_" + TheDate.strftime("%Y%m%d") + "_" + TheDate.strftime("%H") + "_" + f"{StepF:03d}" + ".npy"
                         if os.path.isfile(DirIN_temp + "/" + FileNameIN_temp): # proceed if the files exists
                               Count_EM_OBS = np.load(DirIN_temp + "/" + FileNameIN_temp)
@@ -135,16 +135,16 @@ for SystemFC in SystemFC_list:
                   HRz, FARz = binormal_HR_FAR(HR,FAR)
 
                   # Saving the "real" and "binormal" HRs and FARs, and the variables that determine the good of fitness of binormal model for fitting the "real" ROC curve
-                  MainDirOUT = Git_repo + "/" + DirOUT + "/" + f"{Acc:02d}" + "h" + "/" + SystemFC +  "/" + VRT_Oper + "_" + str(VRT)
+                  MainDirOUT = Git_repo + "/" + DirOUT + "/" + f"{Acc:02d}" + "h" + "/" + SystemFC +  "/" + str(VRT)
                   if not os.path.exists(MainDirOUT):
                         os.makedirs(MainDirOUT)
                   
-                  FileNameOUT_temp = "HR_" + f"{Acc:02d}" + "h_" + SystemFC +  "_" + VRT_Oper + "_" + str(VRT) + "_" + f"{StepF:03d}"
+                  FileNameOUT_temp = "HR_" + f"{Acc:02d}" + "h_" + SystemFC +  "_" + str(VRT) + "_" + f"{StepF:03d}"
                   np.save(MainDirOUT + "/" +  FileNameOUT_temp, HR) 
-                  FileNameOUT_temp = "FAR_" + f"{Acc:02d}" + "h_" + SystemFC + "_" + VRT_Oper + "_" + str(VRT) + "_" + f"{StepF:03d}"
+                  FileNameOUT_temp = "FAR_" + f"{Acc:02d}" + "h_" + SystemFC + "_" + str(VRT) + "_" + f"{StepF:03d}"
                   np.save(MainDirOUT + "/" +  FileNameOUT_temp, FAR)
                   
-                  FileNameOUT_temp = "HRz_" + f"{Acc:02d}" + "h_" + SystemFC + "_" + VRT_Oper + "_" + str(VRT) + "_" + f"{StepF:03d}"
+                  FileNameOUT_temp = "HRz_" + f"{Acc:02d}" + "h_" + SystemFC + "_" + str(VRT) + "_" + f"{StepF:03d}"
                   np.save(MainDirOUT + "/" +  FileNameOUT_temp, HRz) 
-                  FileNameOUT_temp = "FARz_" + f"{Acc:02d}" + "h_" + SystemFC + "_" + VRT_Oper + "_" + str(VRT) + "_" + f"{StepF:03d}"
+                  FileNameOUT_temp = "FARz_" + f"{Acc:02d}" + "h_" + SystemFC + "_" + str(VRT) + "_" + f"{StepF:03d}"
                   np.save(MainDirOUT + "/" +  FileNameOUT_temp, FARz)                 

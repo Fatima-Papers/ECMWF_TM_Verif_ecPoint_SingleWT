@@ -104,8 +104,8 @@ for VRT in VRT_list:
                               abs_freq_fc.append(len(Count_EM_original[ind_prob_em_obs]))
 
                   # Plotting the reliability and sharpness diagrams
-                  ax1.plot(rel_freq_fc, rel_freq_obs, "-", color=Colour_SystemFC, label=SystemFC, linewidth=2)
-                  ax2.plot(rel_freq_fc, rel_freq_obs, "-", color=Colour_SystemFC, label=SystemFC, linewidth=4)
+                  ax1.plot(rel_freq_fc, rel_freq_obs, "-", color=Colour_SystemFC, label=SystemFC, linewidth=4)
+                  ax2.plot(rel_freq_fc, rel_freq_obs, "-", color=Colour_SystemFC, label=SystemFC, linewidth=2)
                   ax3.plot(rel_freq_fc, abs_freq_fc, "-", color=Colour_SystemFC, label=SystemFC, linewidth=2)
             
             # Set the reliability diagram
@@ -115,24 +115,23 @@ for VRT in VRT_list:
             ax1.set_ylabel("Observation relative frequency", fontsize=16, labelpad=10)
             ax1.set_xlim([0,1])
             ax1.set_ylim([0,1])
-            ax1.set_xticks(np.arange(0, 1.1, 0.1))
-            ax1.set_yticks(np.arange(0, 1.1, 0.1))
-            ax1.xaxis.set_tick_params(labelsize=16)
-            ax1.yaxis.set_tick_params(labelsize=16)
+            ax1.set_xticks(np.arange(0, 1.1, 0.5))
+            ax1.set_yticks(np.arange(0, 1.1, 0.5))
+            ax1.xaxis.set_tick_params(labelsize=24)
+            ax1.yaxis.set_tick_params(labelsize=24)
             ax1.legend(loc="upper center", bbox_to_anchor=(0.5, 1.07), ncol=3, fontsize=16, frameon=False)
-            ax1.grid()
 
             # Set the zoomed reliability diagram
             ax2.plot([0,1], [0,1], "-", color="black", linewidth=3)
-            ax2.set_title("Reliability diagram (zoomed in)\n VRT>=" + str(VRT) + "mm/" + str(Acc) + "h, StepF=" + str(StepF) + "\n ", fontsize=18, pad=20, weight="bold")
+            ax2.set_title("Reliability diagram\n VRT>=" + str(VRT) + "mm/" + str(Acc) + "h, StepF=" + str(StepF) + "\n ", fontsize=18, pad=20, weight="bold")
             ax2.set_xlabel("Forecast probabilities", fontsize=16, labelpad=10)
             ax2.set_ylabel("Observation relative frequency", fontsize=16, labelpad=10)
             ax2.set_xlim([0,0.1])
             ax2.set_ylim([0,0.1])
             ax2.set_xticks(np.arange(0, 0.11, 0.01))
             ax2.set_yticks(np.arange(0, 0.11, 0.01))
-            ax2.xaxis.set_tick_params(labelsize=20)
-            ax2.yaxis.set_tick_params(labelsize=20)
+            ax2.xaxis.set_tick_params(labelsize=16)
+            ax2.yaxis.set_tick_params(labelsize=16)
             ax2.legend(loc="upper center", bbox_to_anchor=(0.5, 1.07), ncol=3, fontsize=16, frameon=False)
             ax2.grid()
 

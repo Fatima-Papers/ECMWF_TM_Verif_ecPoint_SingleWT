@@ -58,7 +58,7 @@ for SystemFC in SystemFC_list:
       coastlines = mv.mcoast(
             map_coastline_colour = "charcoal",
             map_coastline_thickness = 3,
-            map_coastline_resolution = "low",
+            map_coastline_resolution = "medium",
             map_boundaries = "on",
             map_boundaries_colour = "charcoal",
             map_boundaries_thickness = 3,

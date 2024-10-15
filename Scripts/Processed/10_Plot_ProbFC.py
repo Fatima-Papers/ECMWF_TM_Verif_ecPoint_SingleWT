@@ -56,20 +56,20 @@ for SystemFC in SystemFC_list:
 
       # Plot the probabilities
       coastlines = mv.mcoast(
-            map_coastline_colour = "grey",
-            map_coastline_thickness = 1,
-            map_coastline_resolution = "medium",
+            map_coastline_colour = "charcoal",
+            map_coastline_thickness = 3,
+            map_coastline_resolution = "low",
             map_boundaries = "on",
-            map_boundaries_colour = "grey",
-            map_boundaries_thickness = 1,
+            map_boundaries_colour = "charcoal",
+            map_boundaries_thickness = 3,
             map_grid_latitude_increment = 30,
             map_grid_longitude_increment = 60,
             map_label_right = "off",
             map_label_top = "off",
             map_label_colour = "charcoal",
-            map_grid_thickness = 1,
+            map_grid_thickness = 3,
             map_grid_colour = "grey",
-            map_label_height = 0.4
+            map_label_height = 3
             )
 
       contouring = mv.mcont(
@@ -88,7 +88,7 @@ for SystemFC in SystemFC_list:
       legend = mv.mlegend(
             legend_text_colour = "charcoal",
             legend_text_font = "arial",
-            legend_text_font_size = 0.4,
+            legend_text_font_size = 3,
             legend_entry_plot_direction = "row",
             legend_box_blanking = "on",
             legend_entry_text_width = 50
@@ -100,13 +100,12 @@ for SystemFC in SystemFC_list:
       title_plot2 = "FC: " + Base_Date_Time.strftime("%d-%m-%Y") + " at " + Base_Date_Time.strftime("%H") + " UTC (t+" + str(StepS) + ",t+" + str(StepF) + ")"
       title_plot3 = "VT: " + VT_S.strftime("%d") + " " + VT_S.strftime("%B") + " " + VT_S.strftime("%Y") + " at " + VT_S.strftime("%H") + " UTC to " + VT_F.strftime("%d") + " " + VT_F.strftime("%B") + " " + VT_F.strftime("%Y") + " at " + VT_F.strftime("%H") + " UTC"
       title = mv.mtext(
-            text_line_count = 4,
+            text_line_count = 3,
             text_line_1 = title_plot1,
             text_line_2 = title_plot2,
             text_line_3 = title_plot3,
-            text_line_4 = " ",
             text_colour = "charcoal",
-            text_font_size = 0.5
+            text_font_size = 4
             )
 
       # Saving the map plot
@@ -114,6 +113,6 @@ for SystemFC in SystemFC_list:
       if not os.path.exists(MainDirOUT):
             os.makedirs(MainDirOUT)
       FileOUT = MainDirOUT + "/Prob_" + str(Thr) + "_" +  SystemFC
-      png = mv.png_output(output_name = FileOUT)
+      png = mv.png_output(output_width = 5000, output_name = FileOUT)
       mv.setoutput(png)
       mv.plot(prob, coastlines, contouring, legend, title)
